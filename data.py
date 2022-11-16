@@ -2,12 +2,11 @@ import requests
 
 parameters = {
     "amount": 10,
-    "type": "boolean"
-
+    "type": "boolean",
 }
 
-requests.get("https://opentdb.com/api.php?amount=10", params=parameters)
-response.raice_for_status()
+response = requests.get("https://opentdb.com/api.php", params=parameters)
+response.raise_for_status()
 data = response.json()
 question_data = data["results"]
 
